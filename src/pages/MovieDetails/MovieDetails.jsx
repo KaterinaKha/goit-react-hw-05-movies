@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import {
   Link,
@@ -81,7 +81,9 @@ const MovieDetails = () => {
           <NavLink to="reviews">Review</NavLink>
         </li>
       </ul>
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
