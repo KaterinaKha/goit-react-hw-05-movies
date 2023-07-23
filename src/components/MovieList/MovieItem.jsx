@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { getPoster } from 'services/getImage';
 import { Image, StyledLink, StyledMovieItem, Title } from './MovieList.styled';
 
