@@ -4,6 +4,7 @@ import { ThreeDots } from 'react-loader-spinner';
 
 import { MovieList } from 'components/MovieList/MovieList';
 import { getTrandingMovies } from 'services/api';
+import { HomeContainer, TrendingMovies } from './Home.styled';
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -24,8 +25,8 @@ export const Home = () => {
     fetchTrandingMovies();
   }, []);
   return (
-    <div>
-      <p>Trending movies</p>
+    <HomeContainer>
+      <TrendingMovies>Trending movies</TrendingMovies>
       {loading && (
         <ThreeDots
           height="80"
@@ -39,7 +40,7 @@ export const Home = () => {
         />
       )}
       <MovieList movies={movies} />
-    </div>
+    </HomeContainer>
   );
 };
 

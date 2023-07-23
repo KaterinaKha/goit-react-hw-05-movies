@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { MovieItem } from './MovieItem';
+import { StyledMovieList } from './MovieList.styled';
 
 export const MovieList = ({ movies }) => {
   return (
-    <ul>
+    <StyledMovieList>
       {movies.map(movie => {
         return (
           <MovieItem
@@ -15,7 +16,7 @@ export const MovieList = ({ movies }) => {
           />
         );
       })}
-    </ul>
+    </StyledMovieList>
   );
 };
 
