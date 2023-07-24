@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 60%;
+  width: 50%;
   height: auto;
   object-fit: cover;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -30,6 +30,7 @@ export const DetailsTitle = styled.h2`
 
 export const Description = styled.p`
   display: block;
+  max-width: 80%;
   margin-bottom: 15px;
   text-align: justify;
 `;
