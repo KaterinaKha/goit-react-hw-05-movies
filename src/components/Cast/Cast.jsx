@@ -3,6 +3,7 @@ import { ThreeDots } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import { getCastDetails } from 'services/api';
 import { getPoster } from 'services/getImage';
+import { CastName, Image, StyledCastItem, StyledCastList } from './Cast.styled';
 
 const Cast = () => {
   const [movieCast, setMovieCast] = useState({});
@@ -41,21 +42,17 @@ const Cast = () => {
       )}
       {movieCast?.length < 1 && <p>No info about castomers</p>}
       {movieCast?.length > 0 && (
-        <ul>
+        <StyledCastList>
           {movieCast?.map(casts => {
             return (
-              <li key={casts.cast_id}>
-                <img
-                  className="cast-poster"
-                  src={getPoster(casts.profile_path)}
-                  alt={casts.name}
-                />
-                <h3>{casts.name}</h3>
+              <StyledCastItem key={casts.cast_id}>
+                <Image src={getPoster(casts.profile_path)} alt={casts.name} />
+                <CastName>{casts.name}</CastName>
                 <p>{casts.character}</p>
-              </li>
+              </StyledCastItem>
             );
           })}
-        </ul>
+        </StyledCastList>
       )}
     </>
   );

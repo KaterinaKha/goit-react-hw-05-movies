@@ -4,6 +4,13 @@ import { ThreeDots } from 'react-loader-spinner';
 import { useSearchParams } from 'react-router-dom';
 import { BiSearchAlt } from 'react-icons/bi';
 import { getMovies } from 'services/api';
+import {
+  SearchForm,
+  SearchFormButton,
+  SearchFormButtonLabel,
+  SearchFormInput,
+  Svg,
+} from './Movies.styled';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -40,19 +47,19 @@ const Movies = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={onFormSubmit}>
-        <input
+    <>
+      <SearchForm onSubmit={onFormSubmit}>
+        <SearchFormInput
           name="search"
           type="text"
           required
           placeholder="Search movies..."
         />
-        <button type="submit">
-          <BiSearchAlt />
-          <span>Search</span>
-        </button>
-      </form>
+        <SearchFormButton type="submit">
+          <BiSearchAlt style={Svg} />
+          <SearchFormButtonLabel>Search</SearchFormButtonLabel>
+        </SearchFormButton>
+      </SearchForm>
       {loading && (
         <ThreeDots
           height="80"
@@ -66,7 +73,7 @@ const Movies = () => {
         />
       )}
       <MovieList movies={movies} />
-    </div>
+    </>
   );
 };
 export default Movies;

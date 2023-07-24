@@ -34,7 +34,7 @@ export const NavLinkStyled = styled(NavLink)`
     color: #2ca08c;
   }
 
-  &.current::after {
+  /* &.current::after {
     content: '';
     position: absolute;
     left: 0;
@@ -42,6 +42,6 @@ export const NavLinkStyled = styled(NavLink)`
     width: 100%;
     height: 4px;
     background: #2ca08c;
-    border-radius: 2px;
-  }
+    border-radius: 2px; */
+  /* } */
 `;

@@ -9,7 +9,17 @@ import {
 } from 'react-router-dom';
 import { getMovieDetails } from 'services/api';
 import { getPoster } from 'services/getImage';
-import { Container } from './MovieDetails.styled';
+import {
+  Container,
+  Description,
+  DetailsTitle,
+  Image,
+  InfoContainer,
+  MovieTitle,
+  NavItem,
+  NavLinkStyl,
+  NavList,
+} from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState({});
@@ -54,34 +64,37 @@ const MovieDetails = () => {
       <Link to={backLinkLocationRef.current}>GO Back</Link>
       {movieDetails && (
         <Container>
-          <img
-            className="movie-poster"
+          <Image
             src={getPoster(movieDetails.poster_path)}
             alt={movieDetails.title || movieDetails.name}
           />
-          <div>
-            <h1>{movieDetails.title || movieDetails.name}</h1>
-            <p>Rating: {movieDetails.vote_average}</p>
-            <h2>Overview</h2>
-            <p>{movieDetails.overview}</p>
-            <h2>Genres</h2>
-            <p>
-              {movieDetails?.genres?.length > 0 && movieDetails?.genres
-                ? movieDetails.genres.map(genre => genre.name).join(', ')
-                : 'NO Genres'}
-            </p>
-          </div>
+          <InfoContainer>
+            <div>
+              {' '}
+              <MovieTitle>{movieDetails.title || movieDetails.name}</MovieTitle>
+              <Description>Rating: {movieDetails.vote_average}</Description>
+              <DetailsTitle>Overview</DetailsTitle>
+              <Description>{movieDetails.overview}</Description>
+              <DetailsTitle>Genres</DetailsTitle>
+              <Description>
+                {movieDetails?.genres?.length > 0 && movieDetails?.genres
+                  ? movieDetails.genres.map(genre => genre.name).join(', ')
+                  : 'NO Genres'}
+              </Description>
+            </div>
+
+            <NavList>
+              <NavItem>
+                <NavLinkStyl to="cast">Cast</NavLinkStyl>
+              </NavItem>
+              <NavItem>
+                <NavLinkStyl to="reviews">Review</NavLinkStyl>
+              </NavItem>
+            </NavList>
+          </InfoContainer>
         </Container>
       )}
 
-      <ul>
-        <li>
-          <NavLink to="cast">Customers</NavLink>
-        </li>
-        <li>
-          <NavLink to="reviews">Review</NavLink>
-        </li>
-      </ul>
       <Suspense>
         <Outlet />
       </Suspense>

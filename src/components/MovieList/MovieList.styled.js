@@ -31,6 +31,7 @@ export const Image = styled.img`
   object-fit: cover;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
+
 export const StyledLink = styled(Link)`
   list-style-type: style none;
   text-decoration: none;

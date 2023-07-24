@@ -2,6 +2,12 @@ import { useEffect, useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import { getReview } from 'services/api';
+import {
+  ReviewAuthor,
+  ReviewContent,
+  StyledReviewItem,
+  StyledReviewList,
+} from './Review.styled';
 
 const Reviews = () => {
   const [movieReview, setMovieReview] = useState({});
@@ -41,14 +47,14 @@ const Reviews = () => {
       )}
 
       {movieReview?.length > 0 ? (
-        <ul>
+        <StyledReviewList>
           {movieReview.map(review => (
-            <li key={review.id}>
-              <p>Author: {review.author}</p>
-              <p>{review.content}</p>
-            </li>
+            <StyledReviewItem key={review.id}>
+              <ReviewAuthor>Author: {review.author}</ReviewAuthor>
+              <ReviewContent>{review.content}</ReviewContent>
+            </StyledReviewItem>
           ))}
-        </ul>
+        </StyledReviewList>
       ) : (
         'No reviews'
       )}
