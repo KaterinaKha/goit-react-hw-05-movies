@@ -38,6 +38,7 @@ export const Description = styled.p`
 export const NavList = styled.ul`
   display: flex;
   flex-direction: row;
+  margin-top: 50px;
 `;
 
 export const NavItem = styled.li`
