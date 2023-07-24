@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import { getMovieDetails } from 'services/api';
 import { getPoster } from 'services/getImage';
+import { Container } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState({});
@@ -52,7 +53,7 @@ const MovieDetails = () => {
       )}
       <Link to={backLinkLocationRef.current}>GO Back</Link>
       {movieDetails && (
-        <div>
+        <Container>
           <img
             className="movie-poster"
             src={getPoster(movieDetails.poster_path)}
@@ -70,7 +71,7 @@ const MovieDetails = () => {
                 : 'NO Genres'}
             </p>
           </div>
-        </div>
+        </Container>
       )}
 
       <ul>
