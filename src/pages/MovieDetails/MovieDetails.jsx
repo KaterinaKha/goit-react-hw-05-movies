@@ -1,12 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useLocation,
-  useParams,
-} from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetails } from 'services/api';
 import { getPoster } from 'services/getImage';
 import {
